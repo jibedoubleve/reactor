@@ -46,7 +46,7 @@ namespace Probel.Reactor
             Locator.CurrentMutable.Register<ILibraryService>(() => new LibraryService());
 
             Locator.CurrentMutable.RegisterLazySingleton(() => new RoutingState(), RoutedViewHosts.Main);
-            Locator.CurrentMutable.RegisterLazySingleton(() => new RoutingState(), RoutedViewHosts.Library);
+            Locator.CurrentMutable.RegisterLazySingleton(() => new RoutingState(), RoutedViewHosts.Library);            
         }
 
         private static void RegisterViewModels()

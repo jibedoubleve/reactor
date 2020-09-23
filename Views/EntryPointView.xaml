@@ -1,0 +1,57 @@
+﻿<mah:MetroWindow
+    x:Class="Probel.Reactor.Views.EntryPointView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Probel.Reactor.Views"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="EntryPointView"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <mah:MetroWindow.Resources>
+        <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mah:HamburgerMenuIconItem}">
+            <Grid Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <iconPacks:PackIconBoxIcons
+                    Height="60"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Kind="{Binding Icon}" />
+                <TextBlock
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="{Binding Label}" />
+            </Grid>
+        </DataTemplate>
+    </mah:MetroWindow.Resources>
+
+    <mah:HamburgerMenu
+        x:Name="_hamburgerMenu"
+        DisplayMode="CompactInline"
+        ItemClick="OnHamburgerMenuItemClick"
+        ItemTemplate="{StaticResource MenuItemTemplate}"
+        OptionsItemTemplate="{StaticResource MenuItemTemplate}">
+        <mah:HamburgerMenu.ItemsSource>
+
+            <mah:HamburgerMenuItemCollection>
+                <mah:HamburgerMenuIconItem
+                    x:Name="_findBook"
+                    Icon="RegularBookHeart"
+                    Label="Find book" />
+                <mah:HamburgerMenuIconItem
+                    x:Name="_empty"
+                    Icon="RegularStation"
+                    Label="Send status" />
+            </mah:HamburgerMenuItemCollection>
+
+        </mah:HamburgerMenu.ItemsSource>
+    </mah:HamburgerMenu>
+</mah:MetroWindow>

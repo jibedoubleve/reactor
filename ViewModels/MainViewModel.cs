@@ -12,13 +12,13 @@ namespace Probel.Reactor.ViewModels
 
         private readonly LibraryViewModel _libraryVm;
         private readonly Random _random = new Random();
+
         #endregion Fields
 
         #region Constructors
 
         public MainViewModel(
             LibraryViewModel libraryVm = null,
-            ContextViewModel contextVm = null,
             RoutingState router = null)
         {
             _libraryVm = libraryVm ?? Locator.Current.GetService<LibraryViewModel>();
